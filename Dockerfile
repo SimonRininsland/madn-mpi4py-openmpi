@@ -78,7 +78,7 @@ RUN chown -R ${USER}:${USER} ${HOME}/.openmpi
 ENV TRIGGER 1
 
 ADD parvaProject ${HOME}/parvaProject
-RUN chown -R ${USER}:${USER} ${HOME}/parvaProject
+RUN chown -R ${USER}:${USER} ${HOME}/
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]

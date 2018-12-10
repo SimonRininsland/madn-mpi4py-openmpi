@@ -7,22 +7,26 @@ services:
       - "222:22"
       - "1337:8000"
     links:
-      - mpi_node
+      - mpi_node_first
+      - mpi_node_second
+      - mpi_node_third
     networks:
       - net
     depends_on:
-      - "mpi_node"
-    command: bash -c "/usr/sbin/sshd && sudo -u mpirun python3 /home/mpirun/parvaProject/manage.py runserver 0.0.0.0:8000 --noreload"
+      - "mpi_node_first"
+      - "mpi_node_second"
+      - "mpi_node_third"
+    command: bash -c "/usr/sbin/sshd && sudo -u mpirun python3 /home/mpirun/parvaProject/manage.py runserver 0.0.0.0:8000"
 
-  mpi_node0:
+  mpi_node_first:
     build: .
     ports:
       - "22"
       - "1338:8000"
     networks:
       - net
-      -
-  mpi_node1:
+
+  mpi_node_second:
     build: .
     ports:
       - "22"
@@ -30,19 +34,11 @@ services:
     networks:
       - net
 
-  mpi_node2:
+  mpi_node_third:
     build: .
     ports:
       - "22"
       - "1400:8000"
-    networks:
-      - net
-
-  mpi_node3:
-    build: .
-    ports:
-      - "22"
-      - "1401:8000"
     networks:
       - net
 

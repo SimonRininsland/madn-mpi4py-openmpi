@@ -14,7 +14,7 @@ function createGame() {
 function startGame(){
     $('.createGame').remove();
     $(".log").html("Please Dice its your turn");
-    $(".dice").toggle();
+    $(".dice").show();
 }
 
 function joinGame() {
@@ -36,13 +36,13 @@ function getStatus() {
     .done(function (response) {
         var status = JSON.parse(response);
         $(".status").html("");
-        var names =  ["turn", "diced", "rank", "players"];
-        for(index = 0; index < 4; index++){
+        var names =  ["isOnTurn", "diced", "round", "rank", "players"];
+        for(index = 0; index < 5; index++){
             Cookies.set(names[index], status[index]);
             $(".status").append(names[index] + " : " + status[index] + "</br>");
         }
         var playground = [];
-        for(index = 4; index < status.length; index++){
+        for(index = 5; index < status.length; index++){
             playground.push(status[index]);
         }
         $.each(playground, function(indexx, line){
@@ -61,7 +61,7 @@ var arr = JSON.parse(json_str);
 }
 
 function dice() {
-    if(Cookies.get('rank') === Cookies.get('turn')){
+    if(Cookies.get('rank') === Cookies.get('isOnTurn')){
         var faceValue, output = '';
 
         faceValue = Math.floor(Math.random() * 6);
@@ -89,6 +89,11 @@ function update(){
     }
     if(Cookies.get('rank') > 0){
         $('.createGame').remove();
+    }
+    if(Cookies.get('isOnTurn') === Cookies.get('rank')){
+        $(".dice").show();
+    } else {
+        $(".dice").hide();
     }
 }
 $(document).ready(function () {
