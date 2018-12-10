@@ -14,11 +14,35 @@ services:
       - "mpi_node"
     command: bash -c "/usr/sbin/sshd && sudo -u mpirun python3 /home/mpirun/parvaProject/manage.py runserver 0.0.0.0:8000 --noreload"
 
-  mpi_node:
+  mpi_node0:
     build: .
     ports:
       - "22"
       - "1338:8000"
+    networks:
+      - net
+      -
+  mpi_node1:
+    build: .
+    ports:
+      - "22"
+      - "1339:8000"
+    networks:
+      - net
+
+  mpi_node2:
+    build: .
+    ports:
+      - "22"
+      - "1400:8000"
+    networks:
+      - net
+
+  mpi_node3:
+    build: .
+    ports:
+      - "22"
+      - "1401:8000"
     networks:
       - net
 
