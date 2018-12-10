@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7bb89bf5-dfc4-402e-8982-2e48a8281830" name="madn-head" url="http://localhost:1337">
+        <fileTransfer host="localhost" port="222" privateKey="C:\Users\Simon\Dropbox\Studium\Master\IV Semester\Parva\project\ssh\id_rsa.mpi" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="222" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="1b4bb560-bb9f-4923-8345-bea8b3f3e59f" name="mand-node" url="http://localhost:1337">
+        <fileTransfer host="localhost" port="223" privateKey="C:\Users\Simon\Dropbox\Studium\Master\IV Semester\Parva\project\ssh\id_rsa.mpi" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="223" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

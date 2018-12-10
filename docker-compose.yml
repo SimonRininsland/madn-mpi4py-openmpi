@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+  mpi_head:
+    build: .
+    ports: 
+      - "222:22"
+      - "1337:8000"
+    links:
+      - mpi_node
+    networks:
+      - net
+    depends_on:
+      - "mpi_node"
+    command: bash -c "/usr/sbin/sshd && sudo -u mpirun python3 /home/mpirun/parvaProject/manage.py runserver 0.0.0.0:8000 --noreload"
+
+  mpi_node:
+    build: .
+    ports:
+      - "22"
+      - "1338:8000"
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge
+
+# docker-compose up --scale mpi_head=1 --scale mpi_node=3
+# docker-compose exec --user mpirun --privileged mpi_head mpirun -n 1 python /home/mpirun/mpi4py_benchmarks/all_tests.py
+# docker-compose down && docker-compose build && docker-compose up

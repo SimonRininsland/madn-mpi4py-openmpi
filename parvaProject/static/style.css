@@ -1,0 +1,112 @@
+.right-log{
+    max-height: 200px;
+    overflow: hidden;
+}
+
+body
+{
+	background: #222;
+	text-align: center;
+	font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+}
+
+.content {
+
+}
+
+#gameBoard {
+	width: 590px;
+}
+.info{
+	display: flex;
+}
+.status{
+	height: 120px;
+	font-size: 1.25rem;
+    font-weight: 300;
+	float: left;
+	width: 300px;
+}
+.log{
+	width: 300px;
+	float: left;
+	height: 120px;
+	font-size: 1.25rem;
+    font-weight: 300;
+}
+.coord {
+	height: 50px;
+	width: 50px;
+	float: left;
+	background-color: grey;
+	border: 1px solid black;
+	color: black;
+}
+
+.w-100{
+	height: 50px;
+}
+
+.container {
+    width: 600px;
+}
+#dice {
+	margin: -50px -8px;
+	font-size: 6rem;
+}
+.dicer {
+	padding: 5px;
+	display: flex;
+}
+
+/*CoordColors*/
+[id='00'], [id='01'], [id='11'], [id='10'], [id='40']
+, [id='51'], [id='52'], [id='53'], [id='54'] {
+	background-color: yellow;
+}
+
+[id='04'], [id='05'], [id='14'], [id='24'], [id='34'], [id='44'], [id='43']
+, [id='42'], [id='41'], [id='50'], [id='60'], [id='61'], [id='62'], [id='63'], [id='64']
+, [id='74'], [id='84'], [id='94'], [id='105'], [id='106'], [id='96'], [id='86'], [id='76']
+, [id='66'], [id='67'], [id='68'], [id='69'], [id='510'], [id='410'], [id='49'], [id='48']
+, [id='47'], [id='46'], [id='36'], [id='26'], [id='16'] {
+	background-color: white;
+}
+
+[id='06'], [id='010'], [id='09'], [id='19'], [id='110']
+, [id='15'], [id='25'], [id='35'], [id='45'] {
+	background-color: green;
+}
+
+[id='104'], [id='100'], [id='101'], [id='90'], [id='91']
+, [id='95'], [id='85'], [id='75'], [id='65'] {
+	background-color: darkslategrey;
+}
+
+[id='610'], [id='1010'], [id='109'], [id='99'], [id='910']
+, [id='59'], [id='58'], [id='57'], [id='56'] {
+	background-color: red;
+}
+
+[id='55'] {
+	background-color: black	;
+}
+/* Board Labels */
+[id='00']:before, [id='100']:before, [id='1010']:before, [id='010']:before {
+    content: "B"
+}
+[id='06']:before, [id='610']:before, [id='104']:before, [id='40']:before {
+    content: "A"
+}
+[id='59']:before, [id='95']:before, [id='51']:before, [id='15']:before {
+    content: "a"
+}
+[id='58']:before, [id='85']:before, [id='52']:before, [id='25']:before {
+    content: "b"
+}
+[id='57']:before, [id='75']:before, [id='53']:before, [id='35']:before {
+    content: "c"
+}
+[id='56']:before, [id='65']:before, [id='54']:before, [id='45']:before {
+    content: "d"
+}
