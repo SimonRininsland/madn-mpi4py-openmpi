@@ -4,43 +4,25 @@ services:
   mpi_head:
     build: .
     ports: 
-      - "222:22"
       - "1337:8000"
     links:
       - mpi_node_first
-      - mpi_node_second
-      - mpi_node_third
     networks:
       - net
-    depends_on:
-      - "mpi_node_first"
-      - "mpi_node_second"
-      - "mpi_node_third"
+    expose: 
+      - "22"
+    environment:
+      - PYTHONUNBUFFERED=0
     command: bash -c "/usr/sbin/sshd && sudo -u mpirun python3 /home/mpirun/parvaProject/manage.py runserver 0.0.0.0:8000"
 
   mpi_node_first:
     build: .
     ports:
-      - "22"
       - "1338:8000"
     networks:
       - net
-
-  mpi_node_second:
-    build: .
-    ports:
+    expose: 
       - "22"
-      - "1339:8000"
-    networks:
-      - net
-
-  mpi_node_third:
-    build: .
-    ports:
-      - "22"
-      - "1400:8000"
-    networks:
-      - net
 
 networks:
   net:

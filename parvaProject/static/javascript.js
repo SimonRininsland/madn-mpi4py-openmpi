@@ -49,14 +49,12 @@ function getStatus() {
             $.each(line, function(indexy, value) {
                 if (value !== '-') {
                     $('[id="' + indexx + '' + indexy + '"]').html("</br>" + value);
+                } else {
+                    $('[id="' + indexx + '' + indexy + '"]').html("");
                 }
             });
         });
         Cookies.set('playgound', JSON.stringify(playground));
-        /**
-         * var json_str = getCookie('mycookie');
-var arr = JSON.parse(json_str);
-         */
     });
 }
 
